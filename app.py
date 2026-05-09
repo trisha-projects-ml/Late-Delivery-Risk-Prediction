@@ -9,12 +9,14 @@ from sklearn.preprocessing import StandardScaler
 df = pd.read_csv("APL_sample.csv")
 
 # Drop columns
-df = df.drop([
+drop_columns = [
     "Customer Fname", "Customer Lname", "Customer Street",
     "Product Name", "Customer City", "Order City",
     "Customer Country", "Order Country",
     "Delivery Status", "Order Status"
-], axis=1)
+]
+
+df = df.drop(columns=[col for col in drop_columns if col in df.columns])
 
 # Feature Engineering
 df["Delay_Gap"] = df["Days for shipping (real)"] - df["Days for shipment (scheduled)"]
