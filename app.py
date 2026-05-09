@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 # Load data
-df = pd.read_excel("APL_sample.csv")
+df = pd.read_csv("APL_sample.csv")
 
 # Drop columns
 df = df.drop([
